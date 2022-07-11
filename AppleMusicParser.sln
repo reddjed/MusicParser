@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleMusicParser", "AppleMusicParser\AppleMusicParser.csproj", "{C729A6E4-65C4-462B-942B-7E207211D565}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{16F2B602-F3C1-44D0-A828-375FA0740B5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C729A6E4-65C4-462B-942B-7E207211D565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C729A6E4-65C4-462B-942B-7E207211D565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C729A6E4-65C4-462B-942B-7E207211D565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F2B602-F3C1-44D0-A828-375FA0740B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F2B602-F3C1-44D0-A828-375FA0740B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F2B602-F3C1-44D0-A828-375FA0740B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F2B602-F3C1-44D0-A828-375FA0740B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

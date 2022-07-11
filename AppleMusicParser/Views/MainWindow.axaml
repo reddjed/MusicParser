@@ -3,15 +3,119 @@
         xmlns:vm="using:AppleMusicParser.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="900"
         x:Class="AppleMusicParser.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="AppleMusicParser">
+        Title="AppleMusicParser"
+        Padding="5"
+        CanResize="False">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="3*"/>
+      <RowDefinition Height="5*"/>
+    </Grid.RowDefinitions>
+    <StackPanel
+                HorizontalAlignment="Center"
+               
+                Orientation="Horizontal"
+                Spacing="20" >
+
+
+      <TextBox x:Name="tbUrl"
+               TextWrapping="Wrap"
+               MaxWidth="500"
+               MinWidth="250"
+               Height="10"
+               Text="https://music.apple.com/ua/album/fly-away-cosmic-gate-remix/1386331742?i=1386331749"
+               ToolTip.Tip="Enter apple music album or playlist url"></TextBox>
+
+      <Button x:Name="btnEnterUrl"
+              Command="{Binding GetData}"
+              CommandParameter="{Binding Text, ElementName=tbUrl}">Enter</Button>
+
+    </StackPanel>
+
+    <Grid Grid.Row="1">
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="3*"/>
+      </Grid.ColumnDefinitions>
+
+      <Image Name="img"
+             Source="{Binding Image}"></Image>
+
+      <Grid Grid.Column="1"
+               
+               >
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="3*" SharedSizeGroup="description"/>
+        </Grid.RowDefinitions>
+
+        <TextPresenter
+                   Grid.Row="0"
+                   Text="{Binding Name}"
+                   ></TextPresenter>
+
+        <TextBlock
+                   Grid.Row="1"
+                   TextWrapping="Wrap"
+                   Text="{Binding Description}"></TextBlock>
+      </Grid>
+    </Grid>
+
+    <ListBox Background="Transparent"
+             Grid.Row="3"
+             Grid.IsSharedSizeScope="True"
+      Items="{Binding Songs}">
+      <ListBox.ItemTemplate>
+        <DataTemplate >
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="3*"
+                                  />
+              <ColumnDefinition Width="3*"
+                                  />
+              <ColumnDefinition Width="3*"
+                                  />
+              <ColumnDefinition
+                Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Margin="0 0 20 0"
+             ToolTip.Tip="Song"
+             TextWrapping="Wrap"
+             Text="{Binding Name}"/>
+
+            <TextBlock Margin="0 0 20 0"
+            ToolTip.Tip="Artist"
+            Grid.Column="1"
+            TextWrapping="Wrap"
+            Text="{Binding Artist}"/>
+
+            <TextBlock Margin="0 0 20 0"
+             ToolTip.Tip="Album"
+             Grid.Column="2"
+             TextWrapping="Wrap"
+             Text="{Binding Album}" />
+
+            <TextBlock ToolTip.Tip="Duration"
+             Grid.Column="3"
+             Text="{Binding Duration}" />
+
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+
+
+  </Grid>
 
 </Window>
